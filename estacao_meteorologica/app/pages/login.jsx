@@ -48,7 +48,7 @@ export default function Login({ navigation }) {
         onPress={() => navigation.navigate("Registro")}
       >
         <Text style={styles.textoSecundario}>Criar Conta</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> 
     </View>
   );
 }

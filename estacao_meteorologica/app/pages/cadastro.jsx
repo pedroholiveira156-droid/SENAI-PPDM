@@ -1,0 +1,91 @@
+import { useState } from 'react'; 
+import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
+
+export default function Cadastro({ navigation }) {
+    const [temp, setTemp] = useState('');
+    const [hum, setHum] = useState('');
+    const [kmVento, setKmVento] = useState('');
+    
+    return (
+        <View style={styles.container}>
+            <Text style={styles.tituloPrincipal}>Cadastro de Medição</Text>
+            
+            <TextInput
+                style={styles.input}
+                placeholder="Temperatura ºC"
+                value={temp}
+                onChangeText={setTemp}
+                keyboardType="numeric"
+            />
+            <TextInput
+                style={styles.input}
+                placeholder="Umidade %"
+                value={hum}
+                onChangeText={setHum}
+                keyboardType="numeric"
+            />
+            <TextInput
+                style={styles.input}
+                placeholder="Velocidade do Vento Km/h"
+                value={kmVento}
+                onChangeText={setKmVento}
+                keyboardType="numeric"
+            />
+
+            <TouchableOpacity style={styles.botaoEntrar} onPress={() => navigation.navigate('Principal')}>
+                <Text style={styles.textoBotao}>Salvar</Text>
+            </TouchableOpacity>
+        </View>
+    )
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#f5f7fa",
+    paddingHorizontal: 24,
+    paddingVertical: 40,
+    justifyContent: "center",
+  },
+  tituloPrincipal: {
+    fontSize: 28,
+    fontWeight: "bold",
+    color: "#1e293b",
+    textAlign: "center",
+    marginBottom: 32, 
+  },
+  input: {
+    backgroundColor: "#ffffff",
+    borderWidth: 1,
+    borderColor: "#e2e8f0",
+    borderRadius: 12,
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    fontSize: 16,
+    color: "#0f172a",
+    marginBottom: 16,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.02,
+    shadowRadius: 2,
+    elevation: 1,
+  },
+  botaoEntrar: {
+    backgroundColor: "#3b82f6",
+    borderRadius: 12,
+    paddingVertical: 14,
+    alignItems: "center",
+    marginTop: 8,
+    marginBottom: 16,
+    shadowColor: "#3b82f6",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    elevation: 3,
+  },
+  textoBotao: {
+    color: "#ffffff",
+    fontSize: 18,
+    fontWeight: "600",
+  },
+});
